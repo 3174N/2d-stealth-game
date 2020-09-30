@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     public float speed = 200f;
+    public float rotateTime = 0.5f;
 
     public GameObject playerLight;
 
@@ -54,8 +55,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector2 direction = (rb.position + movement) - rb.position;
+        
+        // Movement
         Vector2 force = movement * (speed * Time.fixedDeltaTime);
         
         rb.AddForce(force);
+        
+        // Rotation
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        transform.rotation = Quaternion.Lerp(transform.rotation,
+            Quaternion.Euler(0, 0, angle),
+            rotateTime * Time.deltaTime);
     }
 }
