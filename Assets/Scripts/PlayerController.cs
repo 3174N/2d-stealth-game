@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //TODO: Add keyboard controls
+
     #region Variables
 
     public GameObject playerLight;
