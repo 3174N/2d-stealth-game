@@ -217,6 +217,7 @@
           <e p="ColorToPrefab.cs" t="Include" />
           <e p="Distraction.cs" t="Include" />
           <e p="EnemyAI.cs" t="Include" />
+          <e p="EnemyController.cs" t="Include" />
           <e p="GridShadowCastersGenerator.cs" t="Include" />
           <e p="LevelGenerator.cs" t="Include" />
           <e p="PlayerAI.cs" t="Include" />
