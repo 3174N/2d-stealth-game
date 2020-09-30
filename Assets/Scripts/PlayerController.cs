@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //TODO: Add player keyboard controls
+    //TODO: Add keyboard controls
 
     #region Variables
 
