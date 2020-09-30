@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //TODO: Add keyboard controls
-
     #region Variables
+
+    public float speed = 200f;
 
     public GameObject playerLight;
 
@@ -15,16 +15,26 @@ public class PlayerController : MonoBehaviour
 
     private EnemyAI[] enemies;
 
+    private Vector2 movement;
+
+    private Rigidbody2D rb;
+
     #endregion
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        
         enemies = FindObjectsOfType<EnemyAI>();
-        //Debug.Log(enemies[0]);
     }
 
     private void Update()
     {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        movement.Set(horizontal, vertical);
+        movement.Normalize();
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
             playerLight.SetActive(!playerLight.activeSelf);
@@ -40,5 +50,12 @@ public class PlayerController : MonoBehaviour
                 enemies[i].Distract(coin, distPos);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 force = movement * (speed * Time.fixedDeltaTime);
+        
+        rb.AddForce(force);
     }
 }
