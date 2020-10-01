@@ -24,11 +24,10 @@ public class EnemyController : MonoBehaviour
     }
 
     /// <summary>
-    /// Changes enemy's health
+    /// Kills the enemy
     /// </summary>
-    /// <param name="amount"></param>
-    public void ChangeHealth(int amount)
+    public void Kill()
     {
-        currentHealth += amount;
+        Debug.Log(gameObject.name + " was killed");
     }
 }
