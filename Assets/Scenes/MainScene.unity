@@ -2132,6 +2132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 600
   rotateTime: 5
+  attackRange: 1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
   playerLight: {fileID: 835280298}
   coin: {fileID: 11400000, guid: 78d49e6cc9cfadd4fb9daca45ab77fc8, type: 2}
 --- !u!50 &693186395
@@ -3040,7 +3044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4915057b5c72e0541b047b7d5b6f8b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!43 &928191267
 Mesh:
   m_ObjectHideFlags: 0

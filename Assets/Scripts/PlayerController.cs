@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 200f;
     public float rotateTime = 0.5f;
 
+    public float attackRange;
+    public float attackWidth;
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+
     public GameObject playerLight;
 
     public Distraction coin;
@@ -51,6 +56,18 @@ public class PlayerController : MonoBehaviour
                 enemies[i].Distract(coin, distPos);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (Physics2D.OverlapBox(attackPoint.position, new Vector2(attackWidth, attackRange), transform.rotation.z, enemyLayers))
+            {
+                EnemyController enemy = Physics2D
+                    .OverlapBox(attackPoint.position, new Vector2(attackWidth, attackRange), transform.rotation.z, enemyLayers)
+                    .GetComponent<EnemyController>();
+                
+                enemy.Kill();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -68,5 +85,18 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation,
             Quaternion.Euler(0, 0, angle),
             rotateTime * Time.deltaTime);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Color prevColor = Gizmos.color;
+        Matrix4x4 prevMatrix = Gizmos.matrix;
+        
+        Gizmos.color = Color.red;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(attackPoint.localPosition, new Vector3(attackWidth, attackRange, 0f));
+
+        Gizmos.color = prevColor;
+        Gizmos.matrix = prevMatrix;
     }
 }
