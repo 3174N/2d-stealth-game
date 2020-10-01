@@ -28,6 +28,9 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Kill()
     {
+        // TODO: Particals / Animations
+        
         Debug.Log(gameObject.name + " was killed");
+        Destroy(gameObject);
     }
 }
