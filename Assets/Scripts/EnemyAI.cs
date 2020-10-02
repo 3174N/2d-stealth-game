@@ -24,7 +24,14 @@ public class EnemyAI : MonoBehaviour
 
     public float rotateTime = 5f;
 
-    [Header("Raycasting")] public Transform raycaster;
+    [Header("Detection")] 
+    [Tooltip("How long until noticing player in seconds")]
+    public float awareness;
+
+    private float alert;
+    private bool isAlert;
+    
+    public Transform raycaster;
     public LayerMask raycastingMask;
 
     [Tooltip("The size of the raycast; Also affects light")]
@@ -98,6 +105,7 @@ public class EnemyAI : MonoBehaviour
         // Raycasting
         float rayAngle = raycaster.rotation.z - (raySize / 2f);
 
+        isAlert = false;
         for (int ray = 0; ray < raySize; ray++)
         {
             RaycastHit2D hit = Physics2D.Raycast(raycaster.position,
@@ -109,10 +117,14 @@ public class EnemyAI : MonoBehaviour
                 if (hit.transform.CompareTag("Player") && hit.distance <= sightLength)
                 {
                     // Found player
-                    isSearching = false;
-                    foundPlayer = true;
-                    target = hit.point;
-                    Debug.Log("Found Player!");
+                    isAlert = true;
+                    if (alert >= awareness)
+                    {
+                        isSearching = false;
+                        foundPlayer = true;
+                        target = hit.point;
+                        Debug.Log("Found Player!");
+                    }
                 }
             }
 
@@ -121,6 +133,15 @@ public class EnemyAI : MonoBehaviour
 
             rayAngle++;
         }
+        if (isSearching || foundPlayer)
+        {
+            isAlert = true;
+        }
+
+        if (isAlert)
+            alert = (alert <= awareness) ? alert + Time.deltaTime : alert = awareness;
+        else
+            alert = (alert > 0) ? alert - Time.deltaTime : alert = 0;
     }
 
     // Update is called once per frame
