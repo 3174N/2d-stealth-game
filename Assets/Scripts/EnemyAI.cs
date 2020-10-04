@@ -37,7 +37,9 @@ public class EnemyAI : MonoBehaviour
     [Tooltip("The size of the raycast; Also affects light")]
     public float raySize = 60f;
 
-    public float sightLength = 5f;
+    public float lightAngle = 360f;
+
+    public float lightRadius = 1f;
 
     private int currentWaypoint;
     private int waypoint = 0;
@@ -64,9 +66,9 @@ public class EnemyAI : MonoBehaviour
         Light2D light2D = raycaster.GetComponent<Light2D>();
         if (light2D != null)
         {
-            light2D.pointLightOuterAngle = raySize;
-            light2D.pointLightInnerAngle = raySize;
-            light2D.pointLightOuterRadius = sightLength;
+            light2D.pointLightOuterAngle = lightAngle;
+            light2D.pointLightInnerAngle = lightAngle;
+            light2D.pointLightOuterRadius = lightRadius;
         }
 
         currentSpeed = initSpeed;
