@@ -114,16 +114,19 @@ public class EnemyAI : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.transform.CompareTag("Player") && hit.distance <= sightLength)
+                if (hit.transform.CompareTag("Player"))
                 {
-                    // Found player
-                    isAlert = true;
-                    if (alert >= awareness)
+                    if (hit.transform.GetComponent<PlayerController>().IsLit)
                     {
-                        isSearching = false;
-                        foundPlayer = true;
-                        target = hit.point;
-                        Debug.Log("Found Player!");
+                        // Found player
+                        isAlert = true;
+                        if (alert >= awareness)
+                        {
+                            isSearching = false;
+                            foundPlayer = true;
+                            target = hit.point;
+                            Debug.Log("Found Player!");
+                        }
                     }
                 }
             }

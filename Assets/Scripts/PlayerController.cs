@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public Distraction coin;
 
     private EnemyAI[] enemies;
+    private Light2D[] lights;
+    private bool isLit;
+    public bool IsLit => isLit;
 
     private Vector2 movement;
 
@@ -30,12 +34,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         enemies = FindObjectsOfType<EnemyAI>();
+        lights = FindObjectsOfType<Light2D>();
     }
 
     private void Update()
     {
+        // Movement
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         movement.Set(horizontal, vertical);
@@ -57,6 +63,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // Killing enemies
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (Physics2D.OverlapBox(attackPoint.position, new Vector2(attackWidth, attackRange), transform.rotation.z, enemyLayers))
@@ -66,6 +73,20 @@ public class PlayerController : MonoBehaviour
                     .GetComponent<EnemyController>();
                 
                 enemy.Kill();
+            }
+        }
+
+        isLit = false;
+        foreach (Light2D light2D in lights)
+        {
+            if (Vector3.Distance(transform.position, light2D.transform.position) < light2D.pointLightOuterRadius)
+            {
+                Vector2 lightDir = light2D.transform.position - transform.position;
+                if (Math.Abs(light2D.transform.rotation.z - Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg) < light2D.pointLightOuterAngle)
+                {
+                    isLit = true;
+                    Debug.Log("Player lit by " + light2D.name);
+                }
             }
         }
     }
