@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -15,13 +16,14 @@ public class PlayerController : MonoBehaviour
     public float attackWidth;
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    public LayerMask wallLayer;
 
     public GameObject playerLight;
 
     public Distraction coin;
 
     private EnemyAI[] enemies;
-    private Light2D[] lights;
+    private List<Light2D> lights;
     private bool isLit;
     public bool IsLit => isLit;
 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         enemies = FindObjectsOfType<EnemyAI>();
-        lights = FindObjectsOfType<Light2D>();
+        lights = FindObjectsOfType<Light2D>().ToList();
     }
 
     private void Update()
@@ -79,11 +81,25 @@ public class PlayerController : MonoBehaviour
         isLit = false;
         foreach (Light2D light2D in lights)
         {
-            if (Vector3.Distance(transform.position, light2D.transform.position) < light2D.pointLightOuterRadius)
+            if (light2D.lightType == Light2D.LightType.Global)
             {
-                Vector2 lightDir = light2D.transform.position - transform.position;
+                lights.Remove(light2D);
+                return;
+            }
+
+            Vector2 lightDir = light2D.transform.position - transform.position;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, 
+                Quaternion.AngleAxis(Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg, transform.forward) * transform.up,
+                Vector2.Distance(light2D.transform.position, transform.position),
+                wallLayer);
+            Debug.DrawLine(transform.position, hit.point, Color.yellow);
+
+            if (Vector2.Distance(transform.position, light2D.transform.position) < light2D.pointLightOuterRadius)
+            {
                 if (Math.Abs(light2D.transform.rotation.z - Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg) < light2D.pointLightOuterAngle)
                 {
+                    if (hit.collider != null) return;
+                    
                     isLit = true;
                     Debug.Log("Player lit by " + light2D.name);
                 }
