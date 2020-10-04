@@ -48,11 +48,6 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         movement.Set(horizontal, vertical);
         movement.Normalize();
-        
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            playerLight.SetActive(!playerLight.activeSelf);
-        }
 
         // Distraction
         if (Input.GetMouseButtonDown(1))
@@ -105,6 +100,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            playerLight.SetActive(!playerLight.activeSelf);
+        }
+        isLit = playerLight.activeSelf || isLit;
     }
 
     private void FixedUpdate()
