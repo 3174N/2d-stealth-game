@@ -16,4 +16,8 @@ public class Coin : Distraction
     {
         
     }
+
+    public Coin(float soundRadius) : base(soundRadius)
+    {
+    }
 }

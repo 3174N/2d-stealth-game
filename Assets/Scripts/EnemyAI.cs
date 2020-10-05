@@ -261,9 +261,16 @@ public class EnemyAI : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player != null && (isSearching || foundPlayer))
+        if (player != null)
         {
-            SceneManager.LoadScene(0);
+            if ((isSearching || foundPlayer))
+                SceneManager.LoadScene(0);
+            else
+            {
+                Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
+                distraction.soundRadius = 1f;
+                Distract(distraction, player.transform.position);
+            }
         }
     }
 }

@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="" />
+    <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +40,10 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GridShadowCastersGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
       </list>
     </option>
   </component>
@@ -85,7 +89,7 @@
       <workItem from="1601620324842" duration="32000" />
       <workItem from="1601620450987" duration="6394000" />
       <workItem from="1601808312138" duration="6153000" />
-      <workItem from="1601887062530" duration="4838000" />
+      <workItem from="1601887062530" duration="5234000" />
     </task>
     <servers />
   </component>
@@ -110,6 +114,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="670" y="121" key="RiderGenerateDialog" timestamp="1601896056682">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="670" y="121" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601896056682" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1601620356328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
