@@ -30,11 +30,13 @@ public class EnemyAI : MonoBehaviour
 
     private float alert;
     private bool isAlert;
+
+    public ProgressBar alertBar;
     
     public Transform raycaster;
     public LayerMask raycastingMask;
 
-    [Tooltip("The size of the raycast; Also affects light")]
+    [Tooltip("The size of the raycast")]
     public float raySize = 60f;
 
     public float lightAngle = 360f;
@@ -72,6 +74,10 @@ public class EnemyAI : MonoBehaviour
         }
 
         currentSpeed = initSpeed;
+
+        alertBar.minimum = 0;
+        alertBar.maximum = awareness;
+        alertBar.current = alert;
 
         target = waypoints[0].position;
 
@@ -147,6 +153,8 @@ public class EnemyAI : MonoBehaviour
             alert = (alert <= awareness) ? alert + Time.deltaTime : alert = awareness;
         else
             alert = (alert > 0) ? alert - Time.deltaTime : alert = 0;
+
+        alertBar.current = alert;
     }
 
     // Update is called once per frame

@@ -222,6 +222,7 @@
           <e p="LevelGenerator.cs" t="Include" />
           <e p="PlayerAI.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="ProgressBar.cs" t="Include" />
         </e>
       </e>
       <e p="AstarPathfindingProject.csproj" t="IncludeRecursive" />
