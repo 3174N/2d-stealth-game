@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool IsLit => isLit;
 
     private Vector2 movement;
+    private bool isMoving;
 
     private Rigidbody2D rb;
 
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         movement.Set(horizontal, vertical);
         movement.Normalize();
+        isMoving = movement.x != 0 || movement.y != 0;
 
         // Distraction
         if (Input.GetMouseButtonDown(1))
@@ -131,9 +133,10 @@ public class PlayerController : MonoBehaviour
         // Rotation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-            Quaternion.Euler(0, 0, angle),
-            rotateTime * Time.deltaTime);
+        if (isMoving)
+            transform.rotation = Quaternion.Lerp(transform.rotation,
+                Quaternion.Euler(0, 0, angle),
+                rotateTime * Time.deltaTime);
     }
 
     private void OnDrawGizmosSelected()
