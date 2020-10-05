@@ -78,3 +78,34 @@ public class ProgressBar : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(ProgressBar))]
+public class ProgressBarEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        ProgressBar bar = (ProgressBar) target;
+
+        bar.minimum = EditorGUILayout.FloatField("Minimum", bar.minimum);
+        bar.maximum = EditorGUILayout.FloatField("Maximum", bar.maximum);
+        bar.current = EditorGUILayout.FloatField("Current", bar.current);
+
+        bar.mask = (Image)EditorGUILayout.ObjectField("Mask", bar.mask, typeof(Image));
+        bar.fill = (Image)EditorGUILayout.ObjectField("Mask", bar.fill, typeof(Image));
+        
+        bar.colorMode = (ProgressBar.ColorMode)EditorGUILayout.EnumPopup("Color Mode", bar.colorMode);
+        switch (bar.colorMode)
+        {
+            case ProgressBar.ColorMode.Color:
+                bar.color = EditorGUILayout.ColorField("Color", bar.color);
+                break;
+            case ProgressBar.ColorMode.Gradient:
+                bar.gradient = EditorGUILayout.GradientField("Gradient", bar.gradient);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+}
+#endif
