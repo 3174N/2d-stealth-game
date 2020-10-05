@@ -5,6 +5,7 @@ using Pathfinding;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -254,6 +255,15 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Distracted");
             isDistracted = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

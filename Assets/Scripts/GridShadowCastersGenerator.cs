@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 
 public class GridShadowCastersGenerator : MonoBehaviour
@@ -98,10 +100,12 @@ public class GridShadowCastersGenerator : MonoBehaviour
                     {
                         // create new shadowCasterPrefab instance
 
+#if UNITY_EDITOR
                         currentInstance =
                             (GameObject) PrefabUtility.InstantiatePrefab(shadowCasterPrefab, shadowCastersContainer);
                         currentInstance.transform.position =
                             new Vector3(bottomLeft.x + x + 0.5f, bottomLeft.y + y + 0.5f, 0.0f);
+#endif
                     }
                     else
                     {
@@ -201,6 +205,7 @@ public class GridShadowCastersGenerator : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(GridShadowCastersGenerator))]
 public class GridShadowCastersGeneratorEditor : Editor
 {
@@ -219,3 +224,4 @@ public class GridShadowCastersGeneratorEditor : Editor
         }
     }
 }
+#endif
