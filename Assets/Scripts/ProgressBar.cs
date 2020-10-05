@@ -80,7 +80,7 @@ public class ProgressBar : MonoBehaviour
 }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(ProgressBar))]
+[CustomEditor(typeof(ProgressBar)), CanEditMultipleObjects]
 public class ProgressBarEditor : Editor
 {
     public override void OnInspectorGUI()
