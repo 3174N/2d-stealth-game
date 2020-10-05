@@ -261,7 +261,7 @@ public class EnemyAI : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if (player != null)
+        if (player != null && (isSearching || foundPlayer))
         {
             SceneManager.LoadScene(0);
         }
