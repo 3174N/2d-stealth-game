@@ -213,6 +213,7 @@
           </e>
         </e>
         <e p="Editor" t="Include">
+          <e p="WaypointEditor.cs" t="Include" />
           <e p="WaypointManagerWindow.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
@@ -227,6 +228,7 @@
           <e p="PlayerController.cs" t="Include" />
           <e p="ProgressBar.cs" t="Include" />
           <e p="Waypoint.cs" t="Include" />
+          <e p="WaypointNavigator.cs" t="Include" />
         </e>
       </e>
       <e p="AstarPathfindingProject.csproj" t="IncludeRecursive" />

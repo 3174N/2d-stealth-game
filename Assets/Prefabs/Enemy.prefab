@@ -356,7 +356,7 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5, z: 0}
   m_ShapePathHash: 160822549
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40002
+  m_InstanceId: 47872
 --- !u!95 &9121162710086022640
 Animator:
   serializedVersion: 3
@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 9121162711078607044}
   - component: {fileID: 9121162711078607045}
   - component: {fileID: 9121162711078607047}
+  - component: {fileID: 6078734841915848183}
   - component: {fileID: 9121162711078607050}
   - component: {fileID: 9121162711078607051}
   - component: {fileID: 9121162711078607048}
@@ -668,6 +669,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4915057b5c72e0541b047b7d5b6f8b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6078734841915848183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121162711078607049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e79dd6a9da74cc41a3e350396d2255f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: {fileID: 0}
 --- !u!114 &9121162711078607050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,13 +694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc792d55c25053d4dae7d45316b605d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   initSpeed: 400
   speedMultiplier: 2
   nextWayPointDistance: 0.1

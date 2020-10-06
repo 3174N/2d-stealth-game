@@ -11,8 +11,7 @@ public class EnemyAI : MonoBehaviour
 {
     #region Variables
 
-    [Header("Movement")] public Transform[] waypoints;
-
+    [Header("Movement")] 
     public float initSpeed = 200f;
     public float speedMultiplier = 2f;
     float currentSpeed;
@@ -45,8 +44,8 @@ public class EnemyAI : MonoBehaviour
     public float lightRadius = 1f;
 
     private int currentWaypoint;
-    private int waypoint = 0;
     private bool reachedEndOfPath = false;
+    public bool ReachedEndOfPath => reachedEndOfPath;
     private bool reachedWaypoint;
     private Vector2 target;
 
@@ -101,7 +100,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        // Set target here
+        if (reachedEndOfPath)
+            reachedEndOfPath = false;
         
         if (isSearching || foundPlayer)
             currentSpeed = initSpeed * speedMultiplier;
@@ -170,7 +170,6 @@ public class EnemyAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
-            waypoint = (waypoint < waypoints.Length - 1) ? waypoint + 1 : 0;
             waitTime = maxWaitTime;
 
             if (foundPlayer)
