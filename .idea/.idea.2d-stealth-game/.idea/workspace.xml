@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,22 +40,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GridShadowCastersGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Coin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1iDe5wli8MQbYWvs6PPsvhj1nsO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -95,7 +101,7 @@
       <workItem from="1601808312138" duration="6153000" />
       <workItem from="1601887062530" duration="6785000" />
       <workItem from="1601907689442" duration="2797000" />
-      <workItem from="1601965437431" duration="2981000" />
+      <workItem from="1601965437431" duration="5016000" />
     </task>
     <servers />
   </component>
@@ -117,6 +123,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -124,10 +131,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601896470987" />
-    <state x="670" y="121" key="RiderGenerateDialog" timestamp="1601896056682">
+    <state x="670" y="121" key="RiderGenerateDialog" timestamp="1601973236347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="670" y="121" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601896056682" />
+    <state x="670" y="121" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601973236347" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1601620356328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

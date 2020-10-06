@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
             Vector2 lightDir = light2D.transform.position - transform.position;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, 
-                Quaternion.AngleAxis(Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg, transform.forward) * transform.up,
+                Quaternion.AngleAxis(Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
                 Vector2.Distance(light2D.transform.position, transform.position),
                 wallLayer);
             Debug.DrawLine(transform.position, hit.point, Color.yellow);

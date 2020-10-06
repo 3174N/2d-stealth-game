@@ -25,8 +25,7 @@ public class EnemyAI : MonoBehaviour
 
     public float rotateTime = 5f;
 
-    [Header("Detection")] 
-    [Tooltip("How long until noticing player in seconds")]
+    [Header("Detection")] [Tooltip("How long until noticing player in seconds")]
     public float awareness;
 
     private float alert;
@@ -35,12 +34,11 @@ public class EnemyAI : MonoBehaviour
     public ProgressBar alertBar;
 
     public float backupRadius = 5f;
-    
+
     public Transform raycaster;
     public LayerMask raycastingMask;
 
-    [Tooltip("The size of the raycast")]
-    public float raySize = 60f;
+    [Tooltip("The size of the raycast")] public float raySize = 60f;
 
     public float lightAngle = 360f;
 
@@ -148,6 +146,7 @@ public class EnemyAI : MonoBehaviour
 
             rayAngle++;
         }
+
         if (isSearching || foundPlayer)
         {
             isAlert = true;
@@ -237,7 +236,7 @@ public class EnemyAI : MonoBehaviour
 
             if (foundPlayer)
                 break;
-            
+
             yield return null;
         }
 
