@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c5fe88e5cd5514e90b64895027e9fc, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  soundRadius: 5
+  soundRadius: 2.5
+  source: {x: 0, y: 0}
+  position: {x: 0, y: 0}
