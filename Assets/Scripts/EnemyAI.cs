@@ -290,7 +290,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if (other.gameObject.GetComponent<EnemyAI>() != null)
         {
-            touchingEnemy = true;
+            //touchingEnemy = true;
         }
     }
 }
