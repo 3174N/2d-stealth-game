@@ -213,7 +213,6 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
-          <e p="Coin.cs" t="Include" />
           <e p="ColorToPrefab.cs" t="Include" />
           <e p="Distraction.cs" t="Include" />
           <e p="EnemyAI.cs" t="Include" />

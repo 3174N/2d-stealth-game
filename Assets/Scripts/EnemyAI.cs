@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
     private bool isAlert;
 
     public ProgressBar alertBar;
+
+    public float backupRadius = 5f;
     
     public Transform raycaster;
     public LayerMask raycastingMask;
@@ -135,6 +137,7 @@ public class EnemyAI : MonoBehaviour
                             foundPlayer = true;
                             target = hit.point;
                             Debug.Log("Found Player!");
+                            hit.transform.GetComponent<PlayerController>().CallBackup(transform.position, backupRadius);
                         }
                     }
                 }
@@ -242,19 +245,16 @@ public class EnemyAI : MonoBehaviour
         isSearching = false;
     }
 
-    public void Distract(Distraction distraction, Vector2 distPos)
+    public void Distract(Distraction distraction)
     {
-        Vector2 prevTarget = target;
-        //Debug.Log("AAAAA");
-        target = distPos;
-        if (Vector2.Distance(rb.position, path.vectorPath[path.vectorPath.Count - 1]) > distraction.soundRadius)
+        if (Vector2.Distance(rb.position, distraction.position) > distraction.soundRadius)
         {
-            target = prevTarget;
             Debug.Log("Not Distracted");
         }
         else
         {
             Debug.Log("Distracted");
+            target = distraction.position;
             isDistracted = true;
         }
     }
@@ -270,7 +270,9 @@ public class EnemyAI : MonoBehaviour
             {
                 Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
                 distraction.soundRadius = 1f;
-                Distract(distraction, player.transform.position);
+                distraction.position = player.transform.position;
+                distraction.source = player.transform.position;
+                Distract(distraction);
             }
         }
     }

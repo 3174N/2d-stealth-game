@@ -6,9 +6,7 @@ using UnityEngine;
 public class Distraction : ScriptableObject
 {
     public float soundRadius;
-
-    public Distraction(float soundRadius)
-    {
-        this.soundRadius = soundRadius;
-    }
+    
+    public Vector2 source;
+    public Vector2 position;
 }

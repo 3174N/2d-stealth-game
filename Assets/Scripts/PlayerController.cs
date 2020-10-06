@@ -68,8 +68,9 @@ public class PlayerController : MonoBehaviour
             Vector2 distPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             for (int i = 0; i < enemies.Length; i++)
             {
-                Debug.Log(enemies[i]);
-                enemies[i].Distract(coin, distPos);
+                coin.position = distPos;
+                coin.source = transform.position;
+                enemies[i].Distract(coin);
             }
         }
 
@@ -119,6 +120,18 @@ public class PlayerController : MonoBehaviour
             playerLight.SetActive(!playerLight.activeSelf);
         }
         isLit = playerLight.activeSelf || isLit;
+    }
+
+    public void CallBackup(Vector2 source, float radius)
+    {
+        Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
+        distraction.source = source;
+        distraction.position = transform.position;
+        distraction.soundRadius = radius;
+        foreach (var enemy in enemies)
+        {
+            enemy.Distract(distraction);
+        }
     }
 
     private void FixedUpdate()
