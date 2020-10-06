@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             if (light2D.lightType == Light2D.LightType.Global)
             {
                 lights.Remove(light2D);
-                return;
+                break;
             }
 
             Vector2 lightDir = light2D.transform.position - transform.position;
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Math.Abs(light2D.transform.rotation.z - Mathf.Atan2(lightDir.y, lightDir.x) * Mathf.Rad2Deg) < light2D.pointLightOuterAngle)
                 {
-                    if (hit.collider != null) return;
+                    if (hit.collider != null) break;
                     
                     isLit = true;
                     Debug.Log("Player lit by " + light2D.name);

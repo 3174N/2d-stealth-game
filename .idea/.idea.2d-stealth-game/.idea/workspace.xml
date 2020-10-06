@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +40,11 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GridShadowCastersGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Coin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ProgressBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -55,7 +54,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -93,7 +94,8 @@
       <workItem from="1601620450987" duration="6394000" />
       <workItem from="1601808312138" duration="6153000" />
       <workItem from="1601887062530" duration="6785000" />
-      <workItem from="1601907689442" duration="1477000" />
+      <workItem from="1601907689442" duration="2797000" />
+      <workItem from="1601965437431" duration="535000" />
     </task>
     <servers />
   </component>
