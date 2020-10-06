@@ -245,7 +245,7 @@ public class EnemyAI : MonoBehaviour
         isSearching = false;
     }
 
-    public void Distract(Distraction distraction)
+    public void Distract(Distraction distraction, bool fillAwarness)
     {
         if (Vector2.Distance(rb.position, distraction.position) > distraction.soundRadius)
         {
@@ -256,6 +256,11 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("Distracted");
             target = distraction.position;
             isDistracted = true;
+            if (fillAwarness)
+            {
+                alert = awareness;
+                isAlert = true;
+            }
         }
     }
 
@@ -272,7 +277,7 @@ public class EnemyAI : MonoBehaviour
                 distraction.soundRadius = 1f;
                 distraction.position = player.transform.position;
                 distraction.source = player.transform.position;
-                Distract(distraction);
+                Distract(distraction, false);
             }
         }
     }

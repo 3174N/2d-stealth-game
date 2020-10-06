@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             {
                 coin.position = distPos;
                 coin.source = transform.position;
-                enemies[i].Distract(coin);
+                enemies[i].Distract(coin, false);
             }
         }
 
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
         distraction.soundRadius = radius;
         foreach (var enemy in enemies)
         {
-            enemy.Distract(distraction);
+            enemy.Distract(distraction, true);
         }
     }
 
