@@ -259,6 +259,10 @@ public class EnemyAI : MonoBehaviour
                 alert = awareness;
                 isAlert = true;
             }
+            else
+            {
+                alert = Mathf.Clamp(alert + awareness / 2f, 0, awareness);
+            }
         }
     }
 

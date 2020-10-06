@@ -68,11 +68,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector2 distPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            for (int i = 0; i < enemies.Length; i++)
+            foreach (var enemy in enemies)
             {
                 coin.position = distPos;
                 coin.source = transform.position;
-                enemies[i].Distract(coin, false);
+                enemy.Distract(coin, false);
             }
         }
 
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
                     .OverlapBox(attackPoint.position, new Vector2(attackWidth, attackRange), transform.rotation.z, enemyLayers)
                     .GetComponent<EnemyController>();
                 
-                enemy.Kill();
+                enemy.Kill(this);
             }
         }
 

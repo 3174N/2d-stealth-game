@@ -1,27 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region Variables
+
+    private EnemyAI enemyAI;
+
+    #endregion
+
     private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
+        enemyAI = GetComponent<EnemyAI>();
     }
 
     /// <summary>
     /// Kills the enemy
     /// </summary>
-    public void Kill()
+    public void Kill(PlayerController player)
     {
         Debug.Log(gameObject.name + " was killed");
+        player.lights.Remove(enemyAI.raycaster.GetComponent<Light2D>());
         Destroy(gameObject);
     }
 }

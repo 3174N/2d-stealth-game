@@ -800,7 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 968712469}
   nextWaypoint: {fileID: 950230976}
-  width: 1.3
+  width: 2
   branches: []
   branchRatio: 0.5
 --- !u!4 &304014956
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 804350446}
   nextWaypoint: {fileID: 2112620305}
-  width: 1.3
+  width: 2
   branches: []
   branchRatio: 0.5
 --- !u!4 &346185377
@@ -3220,7 +3220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 304014955}
   nextWaypoint: {fileID: 1551927859}
-  width: 1.3
+  width: 2
   branches: []
   branchRatio: 0.5
 --- !u!1001 &966107526
@@ -7727,7 +7727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 346185376}
   nextWaypoint: {fileID: 1231542924}
-  width: 1.3
+  width: 2
   branches: []
   branchRatio: 0.5
 --- !u!4 &2112620306
