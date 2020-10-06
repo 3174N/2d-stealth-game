@@ -278,5 +278,9 @@ public class EnemyAI : MonoBehaviour
                 Distract(distraction, false);
             }
         }
+        else if (other.gameObject.GetComponent<EnemyAI>() != null)
+        {
+            reachedEndOfPath = true;
+        }
     }
 }
