@@ -231,10 +231,11 @@ public class EnemyAI : MonoBehaviour
             t += Time.deltaTime;
             float zRotation = Mathf.Lerp(startRotation, endRotation, t / duration) % 360.0f;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, zRotation);
-            yield return null;
 
             if (foundPlayer)
                 break;
+            
+            yield return null;
         }
 
         Debug.Log("Stop Search");
