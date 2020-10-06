@@ -22,8 +22,11 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Kill(PlayerController player)
     {
-        Debug.Log(gameObject.name + " was killed");
-        player.lights.Remove(enemyAI.raycaster.GetComponent<Light2D>());
-        Destroy(gameObject);
+        if (enemyAI.canBeKilled)
+        {
+            Debug.Log(gameObject.name + " was killed");
+            player.lights.Remove(enemyAI.raycaster.GetComponent<Light2D>());
+            Destroy(gameObject);   
+        }
     }
 }

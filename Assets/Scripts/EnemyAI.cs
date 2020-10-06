@@ -52,6 +52,7 @@ public class EnemyAI : MonoBehaviour
     private bool foundPlayer;
     private bool isSearching;
     private bool isDistracted;
+    [HideInInspector] public bool canBeKilled => foundPlayer;
 
     private Rigidbody2D rb;
     private Path path;
