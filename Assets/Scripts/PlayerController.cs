@@ -22,9 +22,11 @@ public class PlayerController : MonoBehaviour
     public GameObject playerLight;
 
     public Distraction coin;
+    
+    [HideInInspector]
+    public List<Light2D> lights;
 
     private EnemyAI[] enemies;
-    private List<Light2D> lights;
     private bool isLit;
     public bool IsLit => isLit;
 
