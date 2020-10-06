@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour
                     if (hit.collider != null) break;
                     
                     isLit = true;
-                    Debug.Log("Player lit by " + light2D.name);
                 }
             }
         }
