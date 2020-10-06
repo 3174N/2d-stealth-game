@@ -123,12 +123,9 @@ public class PlayerController : MonoBehaviour
         isLit = playerLight.activeSelf || isLit;
     }
 
-    public void CallBackup(Vector2 source, float radius)
+    public void CallBackup(Distraction distraction)
     {
-        Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
-        distraction.source = source;
         distraction.position = transform.position;
-        distraction.soundRadius = radius;
         foreach (var enemy in enemies)
         {
             enemy.Distract(distraction, true);

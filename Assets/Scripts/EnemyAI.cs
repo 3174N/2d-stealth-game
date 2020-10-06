@@ -133,7 +133,11 @@ public class EnemyAI : MonoBehaviour
                             foundPlayer = true;
                             SetTarget(hit.point);
                             Debug.Log("Found Player!");
-                            hit.transform.GetComponent<PlayerController>().CallBackup(transform.position, backupRadius);
+                            
+                            Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
+                            distraction.source = transform.position;
+                            distraction.soundRadius = backupRadius;
+                            hit.transform.GetComponent<PlayerController>().CallBackup(distraction);
                         }
                     }
                 }

@@ -26,7 +26,14 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log(gameObject.name + " was killed");
             player.lights.Remove(enemyAI.raycaster.GetComponent<Light2D>());
+
             Destroy(gameObject);   
         }
+        
+        Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
+        distraction.position = transform.position;
+        distraction.source = transform.position;
+        distraction.soundRadius = 1f;
+        player.CallBackup(distraction);
     }
 }
