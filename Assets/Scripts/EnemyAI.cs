@@ -80,8 +80,6 @@ public class EnemyAI : MonoBehaviour
         alertBar.maximum = awareness;
         alertBar.current = alert;
 
-        target = waypoints[0].position;
-
         InvokeRepeating(nameof(UpdatePath), 0f, 0.5f);
     }
 
@@ -103,9 +101,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (!foundPlayer && !isSearching && !isDistracted)
-            target = waypoints[waypoint].position;
-
+        // Set target here
+        
         if (isSearching || foundPlayer)
             currentSpeed = initSpeed * speedMultiplier;
         else
@@ -133,7 +130,7 @@ public class EnemyAI : MonoBehaviour
                         {
                             isSearching = false;
                             foundPlayer = true;
-                            target = hit.point;
+                            SetTarget(hit.point);
                             Debug.Log("Found Player!");
                             hit.transform.GetComponent<PlayerController>().CallBackup(transform.position, backupRadius);
                         }
@@ -195,10 +192,8 @@ public class EnemyAI : MonoBehaviour
 
             return;
         }
-        else
-        {
-            reachedEndOfPath = false;
-        }
+
+        reachedEndOfPath = false;
 
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * (currentSpeed * Time.fixedDeltaTime);
@@ -221,6 +216,11 @@ public class EnemyAI : MonoBehaviour
         {
             currentWaypoint++;
         }
+    }
+
+    public void SetTarget(Vector2 newTarget)
+    {
+        target = newTarget;
     }
 
     private IEnumerator Rotate(float duration)
@@ -253,7 +253,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             Debug.Log("Distracted");
-            target = distraction.position;
+            SetTarget(distraction.position);
             isDistracted = true;
             if (fillAwarness)
             {
