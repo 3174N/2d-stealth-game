@@ -45,11 +45,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Distraction.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/WaypointEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Waypoint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/WaypointNavigator.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/WaypointManagerWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WaypointNavigator.cs" />
       </list>
     </option>
   </component>
@@ -104,7 +104,7 @@
       <workItem from="1601808312138" duration="6153000" />
       <workItem from="1601887062530" duration="6785000" />
       <workItem from="1601907689442" duration="2797000" />
-      <workItem from="1601965437431" duration="17127000" />
+      <workItem from="1601965437431" duration="18435000" />
     </task>
     <servers />
   </component>
