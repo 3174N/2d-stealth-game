@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
     private bool isSearching;
     private bool isDistracted;
     [HideInInspector] public bool canBeKilled => foundPlayer;
+    [HideInInspector] public bool touchingEnemy;
 
     private Rigidbody2D rb;
     private Path path;
@@ -289,7 +290,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if (other.gameObject.GetComponent<EnemyAI>() != null)
         {
-            reachedEndOfPath = true;
+            touchingEnemy = true;
         }
     }
 }

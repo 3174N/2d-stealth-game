@@ -31,6 +31,11 @@ public class WaypointNavigator : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (controller.touchingEnemy)
+        {
+            direction = (direction == 0) ? 1 : 0;
+        }
+        
         if (controller.ReachedEndOfPath)
         {
             bool shouldBranch = false;
