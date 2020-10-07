@@ -102,9 +102,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (reachedEndOfPath)
-            reachedEndOfPath = false;
-        
         if (isSearching || foundPlayer)
             currentSpeed = initSpeed * speedMultiplier;
         else
@@ -166,6 +163,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        if (reachedEndOfPath)
+            reachedEndOfPath = false;
+        
         // Pathfinding
         if (path == null || waitTime > 0f)
         {
