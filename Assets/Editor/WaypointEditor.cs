@@ -56,3 +56,33 @@ public class WaypointEditor
         Gizmos.color = prevColor;
     }
 }
+
+[CustomEditor(typeof(Waypoint))]
+public class WaypointInspector : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        Waypoint waypoint = (Waypoint) target;
+
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Select Previous Waypoint"))
+        {
+            Selection.activeGameObject = waypoint.previousWaypoint.gameObject;
+        }
+        if (GUILayout.Button("Select Next Waypoint"))
+        {
+            Selection.activeGameObject = waypoint.nextWaypoint.gameObject;
+        }
+        GUILayout.EndHorizontal();
+
+        if (waypoint.branches != null && waypoint.branches.Count > 0)
+        {
+            if (GUILayout.Button("Select Branch"))
+            {
+                Selection.activeGameObject = waypoint.branches[0].gameObject;
+            }
+        }
+    }
+}
