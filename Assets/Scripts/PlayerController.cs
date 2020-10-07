@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
                 coin.position = distPos;
                 coin.source = transform.position;
                 enemy.Distract(coin, false);
+                GameObject particals = Instantiate(coin.particals, coin.position, Quaternion.identity);
+                Destroy(particals.gameObject, 5f);
             }
         }
 

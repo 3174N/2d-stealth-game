@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   soundRadius: 2.5
-  source: {x: 0, y: 0}
-  position: {x: 0, y: 0}
+  source: {x: 3.225848, y: 3.822615}
+  position: {x: 3.2718115, y: 3.5089486}
+  particals: {fileID: 4409504528827749087, guid: fd3efd1d2412ec64d8aae0758f8ac8b9, type: 3}

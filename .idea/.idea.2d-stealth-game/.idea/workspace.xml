@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticalMat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticalMat.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Circle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +103,7 @@
       <workItem from="1601887062530" duration="6785000" />
       <workItem from="1601907689442" duration="2797000" />
       <workItem from="1601965437431" duration="18470000" />
-      <workItem from="1602051744791" duration="923000" />
+      <workItem from="1602051744791" duration="927000" />
     </task>
     <servers />
   </component>

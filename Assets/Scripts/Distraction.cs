@@ -9,4 +9,6 @@ public class Distraction : ScriptableObject
     
     public Vector2 source;
     public Vector2 position;
+
+    public GameObject particals;
 }
