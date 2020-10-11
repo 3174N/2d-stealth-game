@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayers;
     public LayerMask wallLayer;
 
+    public LineRenderer throwRenderer;
+
     public GameObject playerLight;
 
     public Distraction coin;
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private bool isMoving;
 
+    private List<Vector3> contacts;
+
     private Rigidbody2D rb;
 
     #endregion
@@ -43,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
         enemies = FindObjectsOfType<EnemyAI>();
         lights = FindObjectsOfType<Light2D>().ToList();
+        
+        contacts = new List<Vector3>();
     }
 
     private void Update()
@@ -65,9 +71,29 @@ public class PlayerController : MonoBehaviour
         isMoving = movement.x != 0 || movement.y != 0;
 
         // Distraction
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
-            Vector2 distPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            contacts.Clear();
+            contacts.Add(transform.position);
+            
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, 
+                Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
+                Mathf.Infinity, wallLayer);
+            if (hit.collider != null)
+            {
+                contacts.Add(hit.point);
+            }
+
+            throwRenderer.positionCount = contacts.Count;
+            throwRenderer.SetPositions(contacts.ToArray());
+            
+            Debug.DrawLine(transform.position, hit.point, new Color(1f, 0f, 0.87f));
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            /*Vector2 distPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             foreach (var enemy in enemies)
             {
                 coin.position = distPos;
@@ -75,7 +101,10 @@ public class PlayerController : MonoBehaviour
                 enemy.Distract(coin, false);
                 GameObject particals = Instantiate(coin.particals, coin.position, Quaternion.identity);
                 Destroy(particals.gameObject, 5f);
-            }
+            }*/
+            
+            contacts.Clear();
+            throwRenderer.positionCount = 0;
         }
 
         // Killing enemies

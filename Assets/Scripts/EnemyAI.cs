@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
     private bool foundPlayer;
     private bool isSearching;
     private bool isDistracted;
-    [HideInInspector] public bool canBeKilled => foundPlayer;
+    public bool canBeKilled => foundPlayer;
     [HideInInspector] public bool touchingEnemy;
 
     private Rigidbody2D rb;
@@ -251,7 +251,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Distract(Distraction distraction, bool fillAwarness)
     {
-        if (Vector2.Distance(rb.position, distraction.position) > distraction.soundRadius)
+        if (Vector2.Distance(transform.position, distraction.position) > distraction.soundRadius)
         {
             Debug.Log("Not Distracted");
         }

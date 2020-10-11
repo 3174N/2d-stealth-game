@@ -22,13 +22,13 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Kill(PlayerController player)
     {
-        if (enemyAI.canBeKilled)
-        {
+        /*if (enemyAI.canBeKilled)
+        {*/
             Debug.Log(gameObject.name + " was killed");
             player.lights.Remove(enemyAI.raycaster.GetComponent<Light2D>());
 
-            Destroy(gameObject);   
-        }
+            Destroy(gameObject);
+        //}
         
         Distraction distraction = ScriptableObject.CreateInstance<Distraction>();
         distraction.position = transform.position;
