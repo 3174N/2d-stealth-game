@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public LineRenderer throwRenderer;
 
+    public int distractionBounces;
+    public float distractionDistance;
+
     public GameObject playerLight;
 
     public Distraction coin;
@@ -80,15 +83,25 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, 
                 Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
                 Mathf.Infinity, wallLayer);
-            if (hit.collider != null)
+            
+            contacts.Add(hit.point);
+            Debug.DrawLine(transform.position, hit.point, new Color(1f, 0f, 0.87f));
+
+            for (int i = 0; i < distractionBounces; i++)
             {
+                Vector2 reflection = Vector2.Reflect(direction, hit.normal);
+                hit = Physics2D.Raycast(hit.point - direction * 0.1f, 
+                    Quaternion.AngleAxis(Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
+                    Mathf.Infinity, wallLayer);
+                
                 contacts.Add(hit.point);
+                Debug.DrawLine(transform.position, hit.point, new Color(1f, 0f, 0.87f));
+                
+                direction = reflection;
             }
 
             throwRenderer.positionCount = contacts.Count;
             throwRenderer.SetPositions(contacts.ToArray());
-            
-            Debug.DrawLine(transform.position, hit.point, new Color(1f, 0f, 0.87f));
         }
 
         if (Input.GetMouseButtonUp(1))
