@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public LineRenderer throwRenderer;
     public int distractionBounces;
-    public float distractionDistance;
     public GameObject distractionPreview;
+    private Vector2 distractionPos;
     private GameObject preview = null;
 
     public GameObject playerLight;
@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
             }
 
             preview.transform.position = hit.point;
+            distractionPos = hit.point;
 
             throwRenderer.positionCount = contacts.Count;
             throwRenderer.SetPositions(contacts.ToArray());
@@ -136,14 +137,14 @@ public class PlayerController : MonoBehaviour
         {
             if (preview != null) Destroy(preview.gameObject);
 
-            /*foreach (var enemy in enemies)
+            foreach (var enemy in enemies)
             {
-                coin.position = distPos;
+                coin.position = distractionPos;
                 coin.source = transform.position;
                 enemy.Distract(coin, false);
                 GameObject particals = Instantiate(coin.particals, coin.position, Quaternion.identity);
                 Destroy(particals.gameObject, 5f);
-            }*/
+            }
 
             contacts.Clear();
             throwRenderer.positionCount = 0;
