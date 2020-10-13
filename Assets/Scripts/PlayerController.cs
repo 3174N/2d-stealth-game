@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < distractionBounces; i++)
             {
                 Vector2 reflection = Vector2.Reflect(direction, hit.normal);
-                hit = Physics2D.Raycast(hit.point - direction * 0.0000003f, 
+                hit = Physics2D.Raycast(hit.point - direction * 0.0000005f, 
                     Quaternion.AngleAxis(Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
                     Mathf.Infinity, wallLayer);
                 
