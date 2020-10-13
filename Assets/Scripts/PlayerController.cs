@@ -20,9 +20,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask wallLayer;
 
     public LineRenderer throwRenderer;
-
     public int distractionBounces;
     public float distractionDistance;
+    public GameObject distractionPreview;
+    private GameObject preview = null;
 
     public GameObject playerLight;
 
@@ -74,11 +75,17 @@ public class PlayerController : MonoBehaviour
         isMoving = movement.x != 0 || movement.y != 0;
 
         // Distraction
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            preview = Instantiate(distractionPreview);
+        }
+        
         if (Input.GetMouseButton(1))
         {
             contacts.Clear();
             contacts.Add(transform.position);
-            
+
             Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, 
                 Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f, Vector3.forward) * Vector3.up,
@@ -100,12 +107,16 @@ public class PlayerController : MonoBehaviour
                 direction = reflection;
             }
 
+            preview.transform.position = hit.point;
+
             throwRenderer.positionCount = contacts.Count;
             throwRenderer.SetPositions(contacts.ToArray());
         }
 
         if (Input.GetMouseButtonUp(1))
         {
+            if (preview != null) Destroy(preview.gameObject);
+            
             /*foreach (var enemy in enemies)
             {
                 coin.position = distPos;
