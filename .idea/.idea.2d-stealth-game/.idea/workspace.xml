@@ -21,10 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a99021cf-e952-415a-a0ef-8ef25bdaa0da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2d-stealth-game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Preview Distraction Particals.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Preview Distraction Particals.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,7 @@
       <workItem from="1601965437431" duration="18470000" />
       <workItem from="1602051744791" duration="4554000" />
       <workItem from="1602422356349" duration="16336000" />
-      <workItem from="1602570163277" duration="4933000" />
+      <workItem from="1602570163277" duration="6363000" />
     </task>
     <servers />
   </component>
